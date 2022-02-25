@@ -124,6 +124,7 @@ export const manualTriggerSafe = (idx: number) => {
 };
 export const deleteSafeLocation = (idx: number) => {
     safeLocations.splice(idx, 1);
+    redraw();
 };
 export const changeNoteFor = (idx: number, text: string) => {
     console.log(idx, text);
