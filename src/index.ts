@@ -132,6 +132,9 @@ export const changeNoteFor = (idx: number, text: string) => {
     const currentNote = document.getElementById(`progress-label-${idx}`) as HTMLInputElement;
     currentNote.value = text;
 };
+
+let lastConsumedLine: string = localStorage.getItem('lastConsumedLine') || '';
+
 const t = setInterval(function () {
     if (window.alt1) {
         let pos = ocr.find();
@@ -151,7 +154,7 @@ const t = setInterval(function () {
 
                 fullLines.forEach(line => {
                     console.log(/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line), line);
-                    if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line)) {
+                    if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line) && line !== lastConsumedLine) {
                         const now = Date.now();
                         safeLocations[index].available = now + (safeLocations[index].location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
                         safeLocations[index].start = now;
@@ -160,6 +163,7 @@ const t = setInterval(function () {
                         if (index >= safeLocations.length) {
                             index = 0;
                         }
+                        lastConsumedLine = line;
                     }
                 });
             }
@@ -196,6 +200,7 @@ const t = setInterval(function () {
     // }
     localStorage.setItem('safeLocations', JSON.stringify(safeLocations));
     localStorage.setItem('currentIdx', JSON.stringify(index));
+    localStorage.setItem('lastConsumedLine', lastConsumedLine);
 }, 1000);
 
 setTimeout(() => {
