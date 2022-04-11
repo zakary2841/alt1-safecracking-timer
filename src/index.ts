@@ -136,71 +136,73 @@ export const changeNoteFor = (idx: number, text: string) => {
 let lastConsumedLine: string = localStorage.getItem('lastConsumedLine') || '';
 
 const t = setInterval(function () {
-    if (window.alt1) {
-        let pos = ocr.find();
-        if (pos) {
-            let state = ocr.read();
-            // chatHistory.push(state.);
-            if (state) {
-                let fullLines = state.reduce((acc, next) => {
-                    if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\]/.test(next.text)) {
-                        acc.push(next.text);
-                    } else {
-                        acc[acc.length - 1] += ` ${next.text}`;
-                    }
-
-                    return acc;
-                }, []);
-
-                fullLines.forEach(line => {
-                    console.log(/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line), line);
-                    if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line) && line !== lastConsumedLine) {
-                        const now = Date.now();
-                        safeLocations[index].available = now + (safeLocations[index].location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
-                        safeLocations[index].start = now;
-                        index++;
-
-                        if (index >= safeLocations.length) {
-                            index = 0;
+    try {
+        if (window.alt1) {
+            let pos = ocr.find();
+            if (pos) {
+                let state = ocr.read();
+                // chatHistory.push(state.);
+                if (state) {
+                    let fullLines = state.reduce((acc, next) => {
+                        if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\]/.test(next.text)) {
+                            acc.push(next.text);
+                        } else {
+                            acc[acc.length - 1] += ` ${next.text}`;
                         }
-                        lastConsumedLine = line;
-                    }
-                });
+
+                        return acc;
+                    }, []);
+
+                    fullLines.forEach(line => {
+                        console.log(/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line), line);
+                        if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line) && line !== lastConsumedLine) {
+                            const now = Date.now();
+                            safeLocations[index].available = now + (safeLocations[index].location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
+                            safeLocations[index].start = now;
+                            index++;
+
+                            if (index >= safeLocations.length) {
+                                index = 0;
+                            }
+                            lastConsumedLine = line;
+                        }
+                    });
+                }
             }
         }
-    }
 
-    safeLocations.forEach((loc, idx) => {
-        const currentProgress = document.getElementById(`progress-${idx}`) as HTMLProgressElement;
-        const currentProgressLabel = document.getElementById(`progress-label-${idx}`) as HTMLLabelElement;
-        const currentLabelArrow = document.getElementById(`location-arrow-${idx}`) as HTMLLabelElement;
+        safeLocations.forEach((loc, idx) => {
+            const currentProgress = document.getElementById(`progress-${idx}`) as HTMLProgressElement;
+            const currentProgressLabel = document.getElementById(`progress-label-${idx}`) as HTMLLabelElement;
+            const currentLabelArrow = document.getElementById(`location-arrow-${idx}`) as HTMLLabelElement;
 
-        currentLabelArrow.style.display = idx === index ? 'inline-block' : 'none';
+            currentLabelArrow.style.display = idx === index ? 'inline-block' : 'none';
 
-        const currentValue = Date.now() - safeLocations[idx].start;
-        const max = safeLocations[idx].available - safeLocations[idx].start;
-        const secondsLeft = currentValue > max ? 0 : (max - currentValue) / 1000;
+            const currentValue = Date.now() - safeLocations[idx].start;
+            const max = safeLocations[idx].available - safeLocations[idx].start;
+            const secondsLeft = currentValue > max ? 0 : (max - currentValue) / 1000;
 
-        currentProgress.value = currentValue;
-        currentProgress.max = max;
+            currentProgress.value = currentValue;
+            currentProgress.max = max;
 
-        currentProgressLabel.innerText = `${Math.ceil(secondsLeft)} seconds left`;
-    });
+            currentProgressLabel.innerText = `${Math.ceil(secondsLeft)} seconds left`;
+        });
 
-    // redraw();
+        // redraw();
 
-    // if (coords.topLeft.x !== 0 && coords.topLeft.y !== 0 && coords.bottomRight.x !== 0 && coords.bottomRight.y !== 0) {
-    //     var img = a1lib.captureHoldFullRs();
-    //     const chat = img.read(coords.topLeft.x, coords.topLeft.y, coords.bottomRight.x - coords.topLeft.x, coords.bottomRight.y - coords.topLeft.y);
-    //     const text = ocr.read(new ImgRefData(chat));
-    //     console.log(text);
-    //     output.insertAdjacentHTML("beforeend", `<div>${text}</div>`);
-    //     // console.log('nice');
-    //     // chat.show();
-    // }
-    localStorage.setItem('safeLocations', JSON.stringify(safeLocations));
-    localStorage.setItem('currentIdx', JSON.stringify(index));
-    localStorage.setItem('lastConsumedLine', lastConsumedLine);
+        // if (coords.topLeft.x !== 0 && coords.topLeft.y !== 0 && coords.bottomRight.x !== 0 && coords.bottomRight.y !== 0) {
+        //     var img = a1lib.captureHoldFullRs();
+        //     const chat = img.read(coords.topLeft.x, coords.topLeft.y, coords.bottomRight.x - coords.topLeft.x, coords.bottomRight.y - coords.topLeft.y);
+        //     const text = ocr.read(new ImgRefData(chat));
+        //     console.log(text);
+        //     output.insertAdjacentHTML("beforeend", `<div>${text}</div>`);
+        //     // console.log('nice');
+        //     // chat.show();
+        // }
+        localStorage.setItem('safeLocations', JSON.stringify(safeLocations));
+        localStorage.setItem('currentIdx', JSON.stringify(index));
+        localStorage.setItem('lastConsumedLine', lastConsumedLine);
+    } catch { }
 }, 1000);
 
 setTimeout(() => {
