@@ -72,6 +72,9 @@ const ocr = new ChatBoxReader();
 //on load, potentially set new available and start?
 const safeLocations: ({ location: string, note: string, available: number, start: number; })[] = JSON.parse(localStorage.getItem('safeLocations')) || [];
 let index = Number(localStorage.getItem('currentIdx')) || 0;
+setInterval(() => {
+    console.log(safeLocations);
+}, 1000);
 const redraw = () => {
     const progressList = document.getElementById('progress_list');
 
@@ -80,7 +83,7 @@ const redraw = () => {
             const currentValue = Date.now() - next.start;
             const max = next.available - next.start;
             const secondsLeft = currentValue > max ? 0 : (max - currentValue) / 1000;
-            console.log(currentValue, max, next);
+            // console.log(currentValue, max, next);
             acc += `
             <li
                 id="location-${idx}"
@@ -141,30 +144,21 @@ const t = setInterval(function () {
             let pos = ocr.find();
             if (pos) {
                 let state = ocr.read();
-                // chatHistory.push(state.);
+                console.log(state);
                 if (state) {
-                    let fullLines = state.reduce((acc, next) => {
-                        if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\]/.test(next.text)) {
-                            acc.push(next.text);
-                        } else {
-                            acc[acc.length - 1] += ` ${next.text}`;
-                        }
-
-                        return acc;
-                    }, []);
-
-                    fullLines.forEach(line => {
-                        console.log(/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line), line);
-                        if (/^\[[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\] You crack open the safe!/.test(line) && line !== lastConsumedLine) {
-                            const now = Date.now();
-                            safeLocations[index].available = now + (safeLocations[index].location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
+                    state.forEach(line => {
+                        console.log(line.text);
+                        if (line.text.includes('You crack open the safe!')) {
+                            let now = (new Date()).valueOf();
+                            console.log(`New start: ${now} | New End: ${now + (safeLocations[index]?.location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
+                            safeLocations[index].available = now + (safeLocations[index]?.location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
                             safeLocations[index].start = now;
                             index++;
 
                             if (index >= safeLocations.length) {
                                 index = 0;
                             }
-                            lastConsumedLine = line;
+                            lastConsumedLine = line.text;
                         }
                     });
                 }
@@ -172,20 +166,28 @@ const t = setInterval(function () {
         }
 
         safeLocations.forEach((loc, idx) => {
+            console.log(idx);
             const currentProgress = document.getElementById(`progress-${idx}`) as HTMLProgressElement;
             const currentProgressLabel = document.getElementById(`progress-label-${idx}`) as HTMLLabelElement;
             const currentLabelArrow = document.getElementById(`location-arrow-${idx}`) as HTMLLabelElement;
 
-            currentLabelArrow.style.display = idx === index ? 'inline-block' : 'none';
+            if (currentLabelArrow) {
+                currentLabelArrow.style.display = idx === index ? 'inline-block' : 'none';
+            }
 
             const currentValue = Date.now() - safeLocations[idx].start;
             const max = safeLocations[idx].available - safeLocations[idx].start;
             const secondsLeft = currentValue > max ? 0 : (max - currentValue) / 1000;
 
-            currentProgress.value = currentValue;
-            currentProgress.max = max;
+            if (currentProgress) {
+                currentProgress.value = currentValue;
+                currentProgress.max = max;
+            }
 
-            currentProgressLabel.innerText = `${Math.ceil(secondsLeft)} seconds left`;
+            if (currentProgressLabel) {
+                currentProgressLabel.innerText = `${Math.ceil(secondsLeft)} seconds left`;
+            }
+            console.log('finished safes');
         });
 
         // redraw();
@@ -202,7 +204,10 @@ const t = setInterval(function () {
         localStorage.setItem('safeLocations', JSON.stringify(safeLocations));
         localStorage.setItem('currentIdx', JSON.stringify(index));
         localStorage.setItem('lastConsumedLine', lastConsumedLine);
-    } catch { }
+        console.log('finished');
+    } catch (ex) {
+        console.error(ex);
+    }
 }, 1000);
 
 setTimeout(() => {
@@ -221,34 +226,14 @@ export const AddSafe = () => {
     redraw();
 };
 
-// function findChatBounds(img: ImgRef) {
-//     var locations = [
-//         ...img.findSubimage(imgs.gameMessages_filtered),
-//         ...img.findSubimage(imgs.gameMessages_all)
-//     ];
-
-//     output.insertAdjacentHTML("beforeend", `<div>homeport matches: ${JSON.stringify(locations)}</div>`);
-
-//     //overlay the result on screen if running in alt1
-//     if (window.alt1) {
-//         if (locations.length != 0) {
-//             alt1.overLayRect(a1lib.mixColor(255, 255, 255), locations[0].x, locations[0].y, imgs.homeport.width, imgs.homeport.height, 2000, 3);
-//         } else {
-//             alt1.overLayTextEx("Couldn't find homeport button", a1lib.mixColor(255, 255, 255), 20, Math.round(alt1.rsWidth / 2), 200, 2000, "", true, true);
-//         }
-//     }
-
-//     console.log(locations);
-//     console.log(img);
-// }
-
-//print text world
-//also the worst possible example of how to use global exposed exports as described in webpack.config.json
-
-// output.insertAdjacentHTML("beforeend", `
-// 	<div>paste an image of rs with homeport button (or not)</div>
-// 	<div onclick='TEST.capture()'>Click to capture if on alt1</div>`
-// );
+export const Start = () => {
+    for (let index = 0; index < safeLocations.length; index++) {
+        let now = (new Date()).valueOf();
+        console.log(`New start: ${now} | New End: ${now + (safeLocations[index]?.location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
+        safeLocations[index].available = now + (safeLocations[index]?.location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
+        safeLocations[index].start = now;
+    }
+};
 
 //check if we are running inside alt1 by checking if the alt1 global exists
 if (window.alt1) {
@@ -256,4 +241,5 @@ if (window.alt1) {
     //this makes alt1 show the add app button when running inside the embedded browser
     //also updates app settings if they are changed
     alt1.identifyAppUrl("./appconfig.json");
+    Start();
 }

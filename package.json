@@ -2,7 +2,8 @@
 	"scripts": {
 		"build": "node -r ts-node/register ./node_modules/webpack/bin/webpack.js",
 		"watch": "npm run build -- --watch",
-    	"deploy": "push-dir --dir=dist --branch=gh-pages"
+		"deploy": "push-dir --dir=dist --branch=gh-pages",
+		"dev": "nodemon -L --watch src/**/*.* --exec \"npm run build\""
 	},
 	"dependencies": {
 		"@alt1/base": "^1.0.0-alpha.2",
@@ -15,6 +16,7 @@
 		"@types/webpack": "^5.28.0",
 		"file-loader": "^5.1.0",
 		"json-loader": "^0.5.7",
+		"nodemon": "^2.0.15",
 		"push-dir": "^0.4.1",
 		"ts-loader": "^6.2.2",
 		"ts-node": "^8.10.2",
