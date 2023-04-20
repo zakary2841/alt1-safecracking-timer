@@ -3596,9 +3596,9 @@ eval("module.exports = {\"chars\":[{\"width\":7,\"bonus\":140,\"chr\":\"a\",\"pi
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_34813__("./src/fontssrc/chat_8px.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_34813__("./src/fontssrc/chat_8px.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3668,9 +3668,9 @@ eval("module.exports = {\"chars\":[{\"width\":5,\"bonus\":115,\"chr\":\"a\",\"pi
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_33878__("./src/fontssrc/chatbox/10pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_33878__("./src/fontssrc/chatbox/10pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3740,9 +3740,9 @@ eval("module.exports = {\"chars\":[{\"width\":7,\"bonus\":145,\"chr\":\"a\",\"pi
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_39495__("./src/fontssrc/chatbox/12pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_39495__("./src/fontssrc/chatbox/12pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3812,9 +3812,9 @@ eval("module.exports = {\"chars\":[{\"width\":8,\"bonus\":210,\"chr\":\"a\",\"pi
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_47496__("./src/fontssrc/chatbox/14pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_47496__("./src/fontssrc/chatbox/14pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3884,9 +3884,9 @@ eval("module.exports = {\"chars\":[{\"width\":9,\"bonus\":265,\"chr\":\"a\",\"pi
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_57991__("./src/fontssrc/chatbox/16pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_57991__("./src/fontssrc/chatbox/16pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -3956,9 +3956,9 @@ eval("module.exports = {\"chars\":[{\"width\":10,\"bonus\":330,\"chr\":\"a\",\"p
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_74667__("./src/fontssrc/chatbox/18pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_74667__("./src/fontssrc/chatbox/18pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -4028,9 +4028,9 @@ eval("module.exports = {\"chars\":[{\"width\":11,\"bonus\":380,\"chr\":\"a\",\"p
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_85520__("./src/fontssrc/chatbox/20pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_85520__("./src/fontssrc/chatbox/20pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -4100,9 +4100,9 @@ eval("module.exports = {\"chars\":[{\"width\":13,\"bonus\":455,\"chr\":\"a\",\"p
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nested_webpack_require_101834__("./src/fontssrc/chatbox/22pt.fontmeta.json");
+/******/ 	var __nested_webpack_exports__ = __nested_webpack_require_101834__("./src/fontssrc/chatbox/22pt.fontmeta.json");
 /******/ 	
-/******/ 	return __webpack_exports__;
+/******/ 	return __nested_webpack_exports__;
 /******/ })()
 ;
 });
@@ -4225,7 +4225,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		var document = __webpack_require__.g.document;
 /******/ 		if (!scriptUrl && document) {
 /******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src
+/******/ 				scriptUrl = document.currentScript.src;
 /******/ 			if (!scriptUrl) {
 /******/ 				var scripts = document.getElementsByTagName("script");
 /******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
@@ -4260,35 +4260,42 @@ __webpack_require__.r(__webpack_exports__);
 //tell webpack to add index.html and appconfig.json to output
 __webpack_require__(/*! !file-loader?name=[name].[ext]!./index.html */ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./index.html");
 __webpack_require__(/*! !file-loader?name=[name].[ext]!./appconfig.json */ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./appconfig.json");
-let useTooltip = (!!localStorage.getItem('useTooltip') && localStorage.getItem('useTooltip') === 'false') ? false : alt1.permissionOverlay;
-let toggle = document.getElementById('tooltip_toggle');
+let useTooltip = !!localStorage.getItem("useTooltip") &&
+    localStorage.getItem("useTooltip") === "false"
+    ? false
+    : alt1.permissionOverlay;
+let toggle = document.getElementById("tooltip_toggle");
 if (useTooltip)
-    toggle.setAttribute('checked', 'checked');
+    toggle.setAttribute("checked", "checked");
 else
-    toggle.removeAttribute('checked');
-toggle.addEventListener('change', (event) => {
-    localStorage.setItem('useTooltip', !useTooltip == true ? 'true' : 'false');
+    toggle.removeAttribute("checked");
+toggle.addEventListener("change", (event) => {
+    localStorage.setItem("useTooltip", !useTooltip == true ? "true" : "false");
     if (useTooltip)
-        toggle.setAttribute('checked', 'checked');
+        toggle.setAttribute("checked", "checked");
     else
-        toggle.removeAttribute('checked');
+        toggle.removeAttribute("checked");
 });
 var output = document.getElementById("output");
 const ocr = new _alt1_chatbox__WEBPACK_IMPORTED_MODULE_0__["default"]();
 //on load, potentially set new available and start?
-const safeLocations = JSON.parse(localStorage.getItem('safeLocations')) || [];
-let index = Number(localStorage.getItem('currentIdx')) || 0;
+const safeLocations = JSON.parse(localStorage.getItem("safeLocations")) || [];
+let index = Number(localStorage.getItem("currentIdx")) || 0;
 let tooltipOpen = false;
 setInterval(() => {
-    const current = safeLocations.map(entry => {
+    const current = safeLocations
+        .map((entry) => {
         const currentValue = Date.now() - entry.start;
         const max = entry.available - entry.start;
         const secondsLeft = currentValue > max ? 0 : (max - currentValue) / 1000;
-        return ({ ...entry, currentValue, max, secondsLeft });
-    }).filter(entry => entry.secondsLeft == 0);
+        return { ...entry, currentValue, max, secondsLeft };
+    })
+        .filter((entry) => entry.secondsLeft == 0);
     if (useTooltip) {
         if (current.length > 0) {
-            alt1.setTooltip(`${current.map(entry => `[(${entry.location}): ${entry.note}]`).join(', ')} are ready to be cracked again`);
+            alt1.setTooltip(`${current
+                .map((entry) => `[(${entry.location}): ${entry.note}]`)
+                .join(", ")} are ready to be cracked again`);
             tooltipOpen = true;
         }
         else {
@@ -4306,8 +4313,8 @@ setInterval(() => {
     }
 }, 1000);
 const redraw = () => {
-    console.log('asdgasfgsfdd', alt1.mousePosition);
-    const progressList = document.getElementById('progress_list');
+    console.log("asdgasfgsfdd", alt1.mousePosition);
+    const progressList = document.getElementById("progress_list");
     if (progressList) {
         progressList.innerHTML = safeLocations.reduce((acc, next, idx) => {
             const currentValue = Date.now() - next.start;
@@ -4324,7 +4331,7 @@ const redraw = () => {
                 >
                     <div>
                         <label class="nistext" id="location-label-${idx}">${next.location}</label>
-                        <label id="location-arrow-${idx}" style="color: green;display: ${idx === index ? 'inline-block' : 'none'};">←</label>
+                        <label id="location-arrow-${idx}" style="color: green;display: ${idx === index ? "inline-block" : "none"};">←</label>
                     </div>
                     <div>
                         <button
@@ -4346,7 +4353,7 @@ const redraw = () => {
             </li>
             `;
             return acc;
-        }, '');
+        }, "");
     }
 };
 const setCurrent = (idx) => {
@@ -4365,7 +4372,7 @@ const changeNoteFor = (idx, text) => {
     const currentNote = document.getElementById(`progress-label-${idx}`);
     currentNote.value = text;
 };
-let lastConsumedLine = localStorage.getItem('lastConsumedLine') || '';
+let lastConsumedLine = localStorage.getItem("lastConsumedLine") || "";
 const t = setInterval(function () {
     try {
         if (window.alt1) {
@@ -4374,13 +4381,18 @@ const t = setInterval(function () {
                 let state = ocr.read();
                 // console.log(state);
                 if (state) {
-                    state.forEach(line => {
-                        var _a;
+                    state.forEach((line) => {
+                        var _a, _b;
                         // console.log(line.text);
-                        if (line.text.includes('You crack open the safe!')) {
-                            let now = (new Date()).valueOf();
-                            // console.log(`New start: ${now} | New End: ${now + (safeLocations[index]?.location === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
-                            safeLocations[index].available = now + (((_a = safeLocations[index]) === null || _a === void 0 ? void 0 : _a.location) === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
+                        if (line.text.includes("You crack open the safe!")) {
+                            let now = new Date().valueOf();
+                            // console.log(`New start: ${now} | New End: ${now + ((safeLocations[index]?.location === `Zemouregal's Fortress` || safeLocations[index]?.location === 'Wilderness') ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
+                            safeLocations[index].available =
+                                now +
+                                    (((_a = safeLocations[index]) === null || _a === void 0 ? void 0 : _a.location) === `Zemouregal's Fortress` ||
+                                        ((_b = safeLocations[index]) === null || _b === void 0 ? void 0 : _b.location) === "Wilderness"
+                                        ? 1000 * 60 * 10
+                                        : 1000 * 60 * 5);
                             safeLocations[index].start = now;
                             index++;
                             if (index >= safeLocations.length) {
@@ -4398,7 +4410,8 @@ const t = setInterval(function () {
             const currentProgressLabel = document.getElementById(`progress-label-${idx}`);
             const currentLabelArrow = document.getElementById(`location-arrow-${idx}`);
             if (currentLabelArrow) {
-                currentLabelArrow.style.display = idx === index ? 'inline-block' : 'none';
+                currentLabelArrow.style.display =
+                    idx === index ? "inline-block" : "none";
             }
             const currentValue = Date.now() - safeLocations[idx].start;
             const max = safeLocations[idx].available - safeLocations[idx].start;
@@ -4422,9 +4435,9 @@ const t = setInterval(function () {
         //     // console.log('nice');
         //     // chat.show();
         // }
-        localStorage.setItem('safeLocations', JSON.stringify(safeLocations));
-        localStorage.setItem('currentIdx', JSON.stringify(index));
-        localStorage.setItem('lastConsumedLine', lastConsumedLine);
+        localStorage.setItem("safeLocations", JSON.stringify(safeLocations));
+        localStorage.setItem("currentIdx", JSON.stringify(index));
+        localStorage.setItem("lastConsumedLine", lastConsumedLine);
         // console.log('finished');
     }
     catch (ex) {
@@ -4435,21 +4448,30 @@ setTimeout(() => {
     redraw();
 }, 1000);
 const AddSafe = () => {
-    const selector = document.getElementById('safe_location');
+    const selector = document.getElementById("safe_location");
     safeLocations.push({
         location: selector.value,
-        note: '',
+        note: "",
         available: Date.now(),
-        start: Date.now()
+        start: Date.now(),
     });
     redraw();
 };
 const Start = () => {
-    var _a, _b;
+    var _a, _b, _c, _d;
     for (let index = 0; index < safeLocations.length; index++) {
-        let now = (new Date()).valueOf();
-        console.log(`New start: ${now} | New End: ${now + (((_a = safeLocations[index]) === null || _a === void 0 ? void 0 : _a.location) === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
-        safeLocations[index].available = now + (((_b = safeLocations[index]) === null || _b === void 0 ? void 0 : _b.location) === `Zemouregal's Fortress` ? 1000 * 60 * 10 : 1000 * 60 * 5);
+        let now = new Date().valueOf();
+        console.log(`New start: ${now} | New End: ${now +
+            (((_a = safeLocations[index]) === null || _a === void 0 ? void 0 : _a.location) === `Zemouregal's Fortress` ||
+                ((_b = safeLocations[index]) === null || _b === void 0 ? void 0 : _b.location) === "Wilderness"
+                ? 1000 * 60 * 10
+                : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, "\t")}`);
+        safeLocations[index].available =
+            now +
+                (((_c = safeLocations[index]) === null || _c === void 0 ? void 0 : _c.location) === `Zemouregal's Fortress` ||
+                    ((_d = safeLocations[index]) === null || _d === void 0 ? void 0 : _d.location) === "Wilderness"
+                    ? 1000 * 60 * 10
+                    : 1000 * 60 * 5);
         safeLocations[index].start = now;
     }
 };
