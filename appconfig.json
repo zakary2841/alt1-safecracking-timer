@@ -1,9 +1,9 @@
 {
 	"appName": "SafeCracking Timer",
-	"description": "minimal alt1 webpack/ts example test app",
+	"description": "SafeCracking timer for Runescape",
 	"appUrl": "./index.html",
 	"configUrl": "./appconfig.json",
-	"iconUrl": "https://runescape.wiki/images/Safe_%28looted%29.png?4cbe5",
+	"iconUrl": "https://runescape.wiki/images/Safe_%28looted%29.png",
 	"defaultWidth": 250,
 	"defaultHeight": 250,
 	"minWidth": 250,
@@ -11,6 +11,6 @@
 	"maxWidth": 1000,
 	"maxHeight": 1000,
 	"requestHandlers": [ ],
-	"activators": [	],
+	"activators": ["Crack Open Safe", "Examine Safe"],
 	"permissions": "pixel,gamestate,overlay"
 }
