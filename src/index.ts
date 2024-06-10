@@ -8,6 +8,7 @@ import tooltip from "@alt1/tooltip";
 //tell webpack to add index.html and appconfig.json to output
 require("!file-loader?name=[name].[ext]!./index.html");
 require("!file-loader?name=[name].[ext]!./appconfig.json");
+require("!file-loader?name=[name].[ext]!./icon.png");
 
 let useTooltip =
   !!localStorage.getItem("useTooltip") &&
