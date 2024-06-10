@@ -69,7 +69,7 @@ setInterval(() => {
   }
 }, 1000);
 const redraw = () => {
-  console.log("asdgasfgsfdd", alt1.mousePosition);
+  //console.log("Mouse location:", alt1.mousePosition);
   const progressList = document.getElementById("progress_list");
 
   if (progressList) {
@@ -100,7 +100,7 @@ const redraw = () => {
                         >Set</button>
                         <button
                             onclick="TEST.manualTriggerSafe(${idx})"
-                        >Trigger</button>
+                        >Reset</button>
                         <button
                             onclick="TEST.deleteSafeLocation(${idx})"
                         >Delete</button>
@@ -148,13 +148,10 @@ const t = setInterval(function () {
       let pos = ocr.find();
       if (pos) {
         let state = ocr.read();
-        // console.log(state);
         if (state) {
           state.forEach((line) => {
-            // console.log(line.text);
             if (line.text.includes("You crack open the safe!")) {
               let now = new Date().valueOf();
-              // console.log(`New start: ${now} | New End: ${now + ((safeLocations[index]?.location === `Zemouregal's Fortress` || safeLocations[index]?.location === 'Wilderness') ? 1000 * 60 * 10 : 1000 * 60 * 5)} | safe: ${JSON.stringify(safeLocations[index], null, '\t')}`);
               safeLocations[index].available =
                 now +
                 (safeLocations[index]?.location === `Zemouregal's Fortress` ||
@@ -175,7 +172,6 @@ const t = setInterval(function () {
     }
 
     safeLocations.forEach((loc, idx) => {
-      // console.log(idx);
       const currentProgress = document.getElementById(
         `progress-${idx}`
       ) as HTMLProgressElement;
@@ -208,17 +204,6 @@ const t = setInterval(function () {
       // console.log('finished safes');
     });
 
-    // redraw();
-
-    // if (coords.topLeft.x !== 0 && coords.topLeft.y !== 0 && coords.bottomRight.x !== 0 && coords.bottomRight.y !== 0) {
-    //     var img = a1lib.captureHoldFullRs();
-    //     const chat = img.read(coords.topLeft.x, coords.topLeft.y, coords.bottomRight.x - coords.topLeft.x, coords.bottomRight.y - coords.topLeft.y);
-    //     const text = ocr.read(new ImgRefData(chat));
-    //     console.log(text);
-    //     output.insertAdjacentHTML("beforeend", `<div>${text}</div>`);
-    //     // console.log('nice');
-    //     // chat.show();
-    // }
     localStorage.setItem("safeLocations", JSON.stringify(safeLocations));
     localStorage.setItem("currentIdx", JSON.stringify(index));
     localStorage.setItem("lastConsumedLine", lastConsumedLine);

@@ -1,6 +1,17 @@
-# Minimal Alt1/webpack/typescript example
+# SafeCracking Alt1 App
+This app was built to monitor the time left until a Safe is able to be opened.
 
-how to use
+# How to use
+- Dropdown the area of the safe and click "Add Safe" 
+- Do this as with all the safes you want to monitor in the order you need. (name them if you want)
+- Click "Set" on the first safe in your rotation
+- Once the message in detected in the chatbox it will automatically set the time until the safe resets
+- If you mess up and need to reset the safe. Click the "Reset" button
+
+
+# Manualy building the app
+Clone the repo.
+
 ```sh
 #to initialize the repo and install dependencies
 npm i
