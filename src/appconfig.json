@@ -3,7 +3,7 @@
 	"description": "SafeCracking timer for Runescape",
 	"appUrl": "./index.html",
 	"configUrl": "./appconfig.json",
-	"iconUrl": "https://runescape.wiki/images/Safe_%28looted%29.png",
+	"iconUrl": "./icon.png",
 	"defaultWidth": 250,
 	"defaultHeight": 250,
 	"minWidth": 250,
