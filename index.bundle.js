@@ -4986,6 +4986,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./icon.png":
+/*!****************************************************************************!*\
+  !*** ../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./icon.png ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "icon.png");
+
+/***/ }),
+
 /***/ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./index.html":
 /*!******************************************************************************!*\
   !*** ../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./index.html ***!
@@ -5125,6 +5140,7 @@ __webpack_require__.r(__webpack_exports__);
 //tell webpack to add index.html and appconfig.json to output
 __webpack_require__(/*! !file-loader?name=[name].[ext]!./index.html */ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./index.html");
 __webpack_require__(/*! !file-loader?name=[name].[ext]!./appconfig.json */ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./appconfig.json");
+__webpack_require__(/*! !file-loader?name=[name].[ext]!./icon.png */ "../node_modules/file-loader/dist/cjs.js?name=[name].[ext]!./icon.png");
 let useTooltip = !!localStorage.getItem("useTooltip") &&
     localStorage.getItem("useTooltip") === "false"
     ? false
